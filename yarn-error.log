@@ -1,0 +1,40 @@
+Arguments: 
+  /snap/node/5485/bin/node /snap/node/5485/bin/yarn.js config get registry
+
+PATH: 
+  /home/monjur/Desktop/NodeJs/FrontEnd/node_modules/.bin:/home/monjur/Desktop/NodeJs/node_modules/.bin:/home/monjur/Desktop/node_modules/.bin:/home/monjur/node_modules/.bin:/home/node_modules/.bin:/node_modules/.bin:/usr/local/lib/node_modules/npm/node_modules/@npmcli/run-script/lib/node-gyp-bin:/home/monjur/.npm/_npx/c67e74de0542c87c/node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+Yarn version: 
+  1.22.15
+
+Node version: 
+  14.18.1
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: ../package.json: EACCES: permission denied, write
+      at writeSync (fs.js:736:3)
+      at SyncWriteStream._write (internal/fs/sync_write_stream.js:24:3)
+      at writeOrBuffer (internal/streams/writable.js:358:12)
+      at SyncWriteStream.Writable.write (internal/streams/writable.js:303:10)
+      at ConsoleReporter.warn (/snap/node/5485/lib/cli.js:96928:17)
+      at warn (/snap/node/5485/lib/cli.js:51701:23)
+      at module.exports.exports.default (/snap/node/5485/lib/cli.js:37401:7)
+      at /snap/node/5485/lib/cli.js:51712:51
+      at Generator.next (<anonymous>)
+      at step (/snap/node/5485/lib/cli.js:310:30)
+
+npm manifest: 
+  {
+    "name": "tourism-or-delivery-website-client-side-monjurctg5",
+    "version": "0.1.0",
+    "private": true
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
