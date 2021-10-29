@@ -23,11 +23,12 @@ const AdService = () => {
             <h3 className="mt-5 fw-bold  text-success">Add  Event</h3>
             <div className="Event-container">
 
-                <form onSubmit={handleSubmit(onSubmit)}>
+                <form onSubmit={handleSubmit(onSubmit)} className="mb-5">
                     <input required {...register("ServiceName")} placeholder=" Service Name" />
                     <input required {...register("sortTitle")} placeholder="sort title" />
                     <textarea required {...register("description")} placeholder="Descriptio" />
-                    <input  {...register("img")} placeholder=" event image url" /> <br />
+                    <input  {...register("cost")} placeholder="  cost " /> <br />
+                    <input  {...register("img")} placeholder=" service image url" /> <br />
                     <input type="submit" />
                 </form>
             </div>

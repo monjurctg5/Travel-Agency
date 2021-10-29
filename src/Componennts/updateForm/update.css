@@ -1,0 +1,23 @@
+.updateService-container{
+    width: 80%;
+    display: flex;
+    flex-flow: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    background-color: rgba(245, 245, 245, 0.315);
+
+}
+.bg-image{
+    background-image: url("https://image.shutterstock.com/image-photo/view-loh-samah-bay-phi-260nw-1014644104.jpg");
+}
+
+.Event-container, input,textarea {
+    width: 80%;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+ 
+
+}

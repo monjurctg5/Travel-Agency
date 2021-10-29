@@ -15,6 +15,8 @@ import Footer from './Componennts/Footer/Footer'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Register from './Componennts/Register/Register';
 import DashBoard from './Componennts/DashBoard/DashBoard';
+import PrivateRoute from './Componennts/PrivateRoute/PrivateRoute';
+import PlaceORder from './Componennts/PlaceOrder/PlaceORder';
 function App() {
   return (
     <div className="App">
@@ -34,9 +36,12 @@ function App() {
             <Route path="/contact">
               <Contact></Contact>
             </Route>
-            <Route path="/dash">
+            <PrivateRoute path="/placeOrder/:id">
+              <PlaceORder></PlaceORder>
+            </PrivateRoute>
+            <PrivateRoute path="/dash">
               <DashBoard></DashBoard>
-            </Route>
+            </PrivateRoute>
             <Route exact path="/login">
               <Login></Login>
             </Route>
