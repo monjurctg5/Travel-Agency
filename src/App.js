@@ -14,6 +14,7 @@ import Login from './Componennts/Login/Login';
 import Footer from './Componennts/Footer/Footer'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Register from './Componennts/Register/Register';
+import DashBoard from './Componennts/DashBoard/DashBoard';
 function App() {
   return (
     <div className="App">
@@ -32,6 +33,9 @@ function App() {
             </Route>
             <Route path="/contact">
               <Contact></Contact>
+            </Route>
+            <Route path="/dash">
+              <DashBoard></DashBoard>
             </Route>
             <Route exact path="/login">
               <Login></Login>
