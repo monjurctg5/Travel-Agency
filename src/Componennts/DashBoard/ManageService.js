@@ -8,7 +8,7 @@ import UpdateForm from '../updateForm/UpdateForm';
 
 const ManageService = () => {
     const [services, setServices] = useState([])
-    const [updateId, setUpdateId] = useState("")
+    const [updateId, setUpdateId] = useState()
     const [singleService, setSingleService] = useState({})
     const { user, isLoading } = useAuth()
     const { register, handleSubmit, reset } = useForm();
@@ -54,20 +54,19 @@ const ManageService = () => {
     const handleServiceName = e => {
         e.preventDefault()
         const ServiceName = e.target.value
-        const updateService = { ServiceName: ServiceName, sortTitle: singleService.sortTitle, description: singleService.description, img: singleService.img }
+        const updateService = { ServiceName: ServiceName, sortTitle: singleService.sortTitle, description: singleService.description, img: singleService.img,cost:singleService.cost }
         setSingleService(updateService)
     }
     const handleShorTitle = e => {
         e.preventDefault()
         const sortTitle = e.target.value
-        const updateService = { ServiceName: singleService.ServiceName, sortTitle: sortTitle, number: singleService.description, img: singleService.img }
+        const updateService = { ServiceName: singleService.ServiceName, sortTitle: sortTitle, number: singleService.description, img: singleService.img,cost:singleService.cost  }
         setSingleService(updateService)
-
     }
     const handleDescription = e => {
         e.preventDefault()
         const description = e.target.value
-        const updateService = { ServiceName: singleService.ServiceName, sortTitle: singleService.sortTitle, description: description, img: singleService.img }
+        const updateService = { ServiceName: singleService.ServiceName, sortTitle: singleService.sortTitle, description: description, img: singleService.img,cost:singleService.cost  }
         setSingleService(updateService)
     }
     const handleImg = e => {
@@ -75,8 +74,12 @@ const ManageService = () => {
         const img = e.target.value
         const updateService = { ServiceName: singleService.ServiceName, sortTitle: singleService.sortTitle, description: singleService.description, img: img }
         setSingleService(updateService)
-
-
+    }
+    const handleCost = e =>{
+        e.preventDefault()
+        const cost = e.target.value
+        const updateService = { ServiceName: singleService.ServiceName, sortTitle: singleService.sortTitle, description: singleService.description, img: singleService.img ,cost:cost}
+        setSingleService(updateService)
     }
     const onSubmit = (e) => {
         fetch(`http://localhost:5000/friends/${updateId}`, {
@@ -89,7 +92,6 @@ const ManageService = () => {
                 console.log(data);
                 if (data.modifiedCount > 0) {
                     alert("update successfully")
-                    setSingleService({})
                     history.push("/dash")
                 }
             })
@@ -101,9 +103,8 @@ const ManageService = () => {
 
     }
     return (
-        <div className="h-50" >
-            <h1>total service :{services.length}</h1>
-            <table className="table">
+        <div className="table-responsive-sm " >
+            <table className="table table-sm table-striped table-bordered table-hover">
                 <thead>
                     <tr>
                         <th scope="col">SN</th>
@@ -148,10 +149,10 @@ const ManageService = () => {
                             </div>
                             <div className="modal-body">
 
-                                <div className="bg-image">
+                                <div className="update-bg-image">
                                     <div className="updateService-container">
                                         <h3 className="mt-5 fw-bold  text-success">Update  Service</h3>
-                                        <div className="Event-container">
+                                        <div className="update-container">
                                             <form onSubmit={onSubmit}>
                                                 <input value={singleService.ServiceName}
                                                     onChange={handleServiceName}
@@ -161,7 +162,8 @@ const ManageService = () => {
                                                     placeholder="sort title" />
                                                 <textarea value={singleService.description}
                                                     onChange={handleDescription}
-                                                    placeholder="Descriptio" />
+                                                    placeholder="Description" />
+                                                     <input value={singleService.cost} onChange={handleCost} placeholder=" event image url" /> <br />
                                                 <input value={singleService.img} onChange={handleImg} placeholder=" event image url" /> <br />
                                                 <input type="submit" />
                                             </form>

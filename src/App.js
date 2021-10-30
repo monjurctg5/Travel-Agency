@@ -13,7 +13,6 @@ import Contact from './Componennts/Contact/Contact';
 import Login from './Componennts/Login/Login';
 import Footer from './Componennts/Footer/Footer'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Register from './Componennts/Register/Register';
 import DashBoard from './Componennts/DashBoard/DashBoard';
 import PrivateRoute from './Componennts/PrivateRoute/PrivateRoute';
 import PlaceORder from './Componennts/PlaceOrder/PlaceORder';
@@ -45,9 +44,7 @@ function App() {
             <Route exact path="/login">
               <Login></Login>
             </Route>
-            <Route exact path="/register">
-              <Register></Register>
-            </Route>
+      
 
           </Switch>
           <Footer/>

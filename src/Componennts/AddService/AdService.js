@@ -19,8 +19,8 @@ const AdService = () => {
         })
     }
     return (
-        <div className="addEvent-container">
-            <h3 className="mt-5 fw-bold  text-success">Add  Event</h3>
+        <div className="addservice-container">
+            <h3 className="mt-5 fw-bold  text-success">Add  Services</h3>
             <div className="Event-container">
 
                 <form onSubmit={handleSubmit(onSubmit)} className="mb-5">

@@ -9,15 +9,15 @@
     background-color: rgba(245, 245, 245, 0.315);
 
 }
-.bg-image{
+.update-bg-image{
     background-image: url("https://image.shutterstock.com/image-photo/view-loh-samah-bay-phi-260nw-1014644104.jpg");
 }
 
-.Event-container, input,textarea {
+.update-container input,textarea {
     width: 80%;
     padding: 10px;
     border-radius: 10px;
     margin-top: 10px;
+    color: black;
  
-
 }

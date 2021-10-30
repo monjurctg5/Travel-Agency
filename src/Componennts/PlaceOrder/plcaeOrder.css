@@ -1,0 +1,28 @@
+
+
+.Order-container{
+    width: 80%;
+    display: flex;
+    flex-flow: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    background-color: rgba(14, 13, 13, 0.411);
+
+}
+.bg-image{
+    background-image: url("https://wallpaperaccess.com/full/228018.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background: cover;
+}
+
+
+.Event-container, input {
+    width: 80%;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+}

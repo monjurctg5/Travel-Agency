@@ -1,0 +1,16 @@
+
+
+.left-dash{
+    height: 700px;
+    background-color: rgb(44, 39, 56);
+    color:white
+}
+
+@media(max-width:700px){
+   .dash-container{
+       height: fit-content;
+   }
+   .left-dash{
+       height: fit-content;
+   }
+}
