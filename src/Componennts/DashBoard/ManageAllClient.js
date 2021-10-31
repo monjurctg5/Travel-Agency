@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Spinner } from 'react-bootstrap';
+import swal from 'sweetalert';
 
 const ManageAllClient = () => {
     const [orders, setOrders] = useState([])
@@ -10,13 +11,30 @@ const ManageAllClient = () => {
 
     }, [orders])
     const approvalId = id => {
-        fetch(`https://shielded-badlands-01145.herokuapp.com/orders/${id}`, { method: "PUT" })
-            .then(res => res.json())
-            .then(data => {
-                if (data.modifiedCount > 0) {
-                    alert("success fully  approoved")
-                }
-            })
+     
+        swal({
+            title: "Are you sure ?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((approved) => {
+            if (approved) {
+                fetch(`https://shielded-badlands-01145.herokuapp.com/orders/${id}`, { method: "PUT" })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.modifiedCount > 0) {
+                        alert("success fully  approoved")
+                    }
+                })
+              swal("Poof! Order  Approved successfully", {
+                icon: "success",
+              });
+            } else {
+              swal("Your imaginary file is safe!");
+            }
+          });
+      
     }
     const handleDelete = id => {
 
