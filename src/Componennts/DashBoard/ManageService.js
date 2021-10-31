@@ -49,7 +49,7 @@ const ManageService = () => {
                 fetch(`https://shielded-badlands-01145.herokuapp.com/services/${id}`, { method: "delete" }).then(res => res.json())
                 .then(data => {
                     if (data.deletedCount > 0) {
-                        swal("Poof! Your imaginary file has been deleted!", {
+                        swal("delete successfully!", {
                             icon: "success",
                           });
                         
@@ -59,7 +59,7 @@ const ManageService = () => {
                 })
           
             } else {
-              swal("Your imaginary file is safe!");
+              swal("Not Deleteded!");
             }
           });
       

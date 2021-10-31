@@ -37,22 +37,35 @@ const ManageAllClient = () => {
       
     }
     const handleDelete = id => {
-
-        const permition = window.confirm("want to delete?")
-             if(permition){
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this imaginary file!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
                 fetch(`https://shielded-badlands-01145.herokuapp.com/orders/${id}`, { method: "delete" })
                 .then(res => res.json())
                 .then(data => {
                     if(data.deletedCount){
-                        alert("delete Successfully")
+                        swal({
+                            title: "Delete successfully !",
+                            icon: "success",
+                          });
                         const remainning = orders.filter(order=>order._id!==id)
                         setOrders(remainning)
                         
                     }
                  
                 })
-             
-             }
+    
+            } else {
+              swal("Not Delete!");
+            }
+          });
+
         
 
     }
