@@ -1,6 +1,6 @@
 
 .experience{
-    margin-top: 20px;
+    margin-top: 50px;
 }
 .experience h1{ 
     color: #005B21;
@@ -9,13 +9,8 @@
 .card-custom  img{
     height: 300px;
     transition: transform 1.5s;
-   
-
-   
-
 }
 .card-custom:hover img{
-    transform: scale(1.05)
-    
-
+    transform: scale(1.03)
 }
+

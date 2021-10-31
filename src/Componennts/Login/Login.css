@@ -1,6 +1,5 @@
 .login-container{
-
-    height: 400px;
+    height: 300px;
     border: 2px solid gray;
     width: 30%;
     margin: 0 auto;
@@ -13,4 +12,31 @@
 .login-container input {
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+.login-minheight{
+    min-height: 600px;
+}
+.loginButton{
+    width: 70%;
+    height: 60px;
+    box-shadow:5px 5px 10px gray;
+    background-color: white;
+    border-radius: 30px;
+
+}
+.loginButton img{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+@media (max-width:800px){
+    .login-container{
+        width: 70%;
+    }
+}
+
+.login-container{
+    
 }

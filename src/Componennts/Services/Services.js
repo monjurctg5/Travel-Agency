@@ -18,15 +18,19 @@ const Services = () => {
     }
     return (
         <div>
-            <h1>Total services : {services.length}</h1>
-            <div className="row col-12 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-4 ">
+            <div className="top-destination" >
+                <h1>Top Destination</h1>
+            </div>
+            <div className="row  row-cols-sm-1 justify-content-center align-items-center row-cols-md-3 row-cols-lg-4 g-4 ">
                 {
                     services.map(service => (
                         <div className="col">
-                            <div class="card" style={{ width: "18rem" }}>
-                                <img src={service.img} class="card-img-top" alt="..." />
+                            <div class="card service-card-custom  " style={{ width: "18rem" }}>
+                                <img src={service.img}
+                                    class="card-img-top" height="200px" alt="..." />
                                 <div class="card-body">
                                     <h5 class="card-title">{service.ServiceName}</h5>
+                                    <p>{service.sortTitle.slice(0, 26)}</p>
                                     <Link to={`/placeOrder/${service._id}`} class="btn btn-danger"
                                     >Booking Now
                                     </Link>

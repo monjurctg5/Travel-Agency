@@ -57,7 +57,7 @@ const ManageAllClient = () => {
 
     }
     return (
-        <div className="table-responsive-sm">
+        <div className="table-responsive-sm manageAllClient">
             <table className="table table-sm table-striped table-bordered table-hover ">
                 <thead>
                     <tr>

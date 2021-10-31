@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactPlayer from 'react-player'
-let img1 = "https://images.unsplash.com/photo-1628400187127-d4610a2cde33?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80"
+let img1 = "https://www.planetware.com/photos-large/BRA/brazil-rio-de-janeiro-cristo-redentor.jpg"
 
 let img2 = "https://images.unsplash.com/photo-1537956965359-7573183d1f57?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80"
 let img3 = "https://images.unsplash.com/photo-1558187424-f786111643b0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=882&q=80"

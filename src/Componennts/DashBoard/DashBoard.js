@@ -16,7 +16,7 @@ const DashBoard = () => {
         setToggle(<ManageAllClient></ManageAllClient>)
     }
     return (
-        <div className="">
+        <div className=" ">
             <div className="row ">
                 <div className="col-md-3 col-sm-12 cols-12 pt-5 left-dash">
                     {/* <h1>this is dash</h1> */}
@@ -32,7 +32,7 @@ const DashBoard = () => {
                        </div>
                     </div>
                 </div>
-                <div className="col-md-9 col-sm-12  admin-img">
+                <div className="col-md-9 col-sm-12 dash  admin-img">
                     {/* <h1>this is dash board</h1> */}
                     {toggle}
 

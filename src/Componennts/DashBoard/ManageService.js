@@ -4,6 +4,8 @@ import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 import "../updateForm/update.css"
+import swal from 'sweetalert';
+
 // import AdService from '../AddService/AdService';
 // import UpdateForm from '../updateForm/UpdateForm';
 
@@ -35,17 +37,32 @@ const ManageService = () => {
         return <Spinner animation="border" variant="danger" />
     }
     const handleDelete = id => {
-        const confirm = window.confirm("Are You  want to delete?")
-        if (confirm) {
-            fetch(`https://shielded-badlands-01145.herokuapp.com/services/${id}`, { method: "delete" }).then(res => res.json())
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this imaginary file!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+                fetch(`https://shielded-badlands-01145.herokuapp.com/services/${id}`, { method: "delete" }).then(res => res.json())
                 .then(data => {
                     if (data.deletedCount > 0) {
-                        alert("delete successfully")
+                        swal("Poof! Your imaginary file has been deleted!", {
+                            icon: "success",
+                          });
+                        
                         const remaingServices = services.filter(service => service._id !== id)
                         setServices(remaingServices)
                     }
                 })
-        }
+          
+            } else {
+              swal("Your imaginary file is safe!");
+            }
+          });
+      
     }
     const update = id => {
         setUpdateId(id)
@@ -104,7 +121,7 @@ const ManageService = () => {
 
     }
     return (
-        <div className="table-responsive-sm " >
+        <div className="table-responsive-sm  manageService" >
             <table className="table table-sm table-striped table-bordered table-hover">
                 <thead>
                     <tr>
@@ -131,7 +148,7 @@ const ManageService = () => {
                                         onClick={() => update(service._id)}
                                         type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
                                     >update</button>
-                                    <button onClick={() => handleDelete(service._id)} className="btn btn-danger">delete</button>
+                                    <button onClick={() => handleDelete(service._id)} className="btn btn-danger mt-2">delete</button>
                                 </td>
                             </tr>
                         ))

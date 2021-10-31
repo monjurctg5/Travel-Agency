@@ -51,7 +51,7 @@ const PlaceORder = () => {
             })
     }
     return (
-        <div className="row row-cols-1 row-cols-md-2 g-4 bg-image">
+        <div className="row row-cols-1 row-cols-md-2 g-4 order-box">
             <div className="col">
                 <dib className="row  row-cols-sm-1 row-cols-md-2 justify-content-center align-items-center ">
                     <div className="col mt-5">
@@ -68,7 +68,7 @@ const PlaceORder = () => {
             </div>
             <div className="col ">
                 <div className="Order-container">
-                    <h3 className="pt-5 fw-bold  text-white">Filup This Form</h3>
+                    <h3 className="pt-5 fw-bold  ">Filup This Form</h3>
                     <div className="Event-container">
                         <form onSubmit={handleSubmit(onSubmit)} className="mb-5">
                             <input required {...register("clientName")}
