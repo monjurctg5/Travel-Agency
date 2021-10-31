@@ -14,3 +14,19 @@
     transform: scale(1.03)
 }
 
+.location-container{
+    box-shadow: 8px 7px  20px gray;
+}
+.location-container  img{
+    width: 200px;
+    
+}
+.adress-container{
+    width: 50%;
+    margin: 0 auto;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}

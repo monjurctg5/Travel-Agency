@@ -1,0 +1,62 @@
+.icon{
+    color: gold;
+    font-size: 40px;
+}
+
+  .custom-card{
+      border:1px solid  ;
+      /* background-color: rgba(0, 0, 0, 0.377); */
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.3);
+      box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.281);
+  }
+/* .subtitle {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.5em;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    max-width: 275px;
+    margin-left: auto;
+    color: white;
+    margin-right: auto;
+    margin-bottom: 1rem;
+} */
+.Button {
+    display: inline-block;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 1.19rem 1.37rem;
+    min-width: 170px;
+    font-size: 15px;
+    border: 1px solid #D9D9D9;
+    background: #fff;
+    width: 50% !important;
+    
+}
+.Button a{
+    text-decoration: none;
+    color: #000;
+    letter-spacing: .1em;
+    transition: background .2s ease,border .2s ease;
+    margin-top: 1rem;
+    font-weight: 700;
+    
+    
+}
+
+
+
+@media(max-width:600px){
+    .text-content{
+        width: 100%;
+    }
+}
+.contact-container{
+    background-color: rgba(92, 88, 88, 0.253);
+    
+
+}
+.contact-text {
+    color: rgba(8, 8, 8, 0.822);
+}

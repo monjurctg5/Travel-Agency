@@ -1,7 +1,9 @@
 import React from 'react';
+import ContactPart from '../Contact/ContactPart/ContactPart';
 import Services from '../Services/Services';
 import Banner from './Banner';
 import './Home.css'
+import OurLocation from './OurLocation';
 
 const Home = () => {
 
@@ -52,6 +54,12 @@ const Home = () => {
                 </div>
             </div>
             </div>
+
+
+
+            <OurLocation></OurLocation>
+
+            <ContactPart/>
         </div>
     );
 };

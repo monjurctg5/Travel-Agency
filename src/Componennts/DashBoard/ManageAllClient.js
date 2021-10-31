@@ -24,7 +24,7 @@ const ManageAllClient = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.modifiedCount > 0) {
-                        alert("success fully  approoved")
+                       
                     }
                 })
               swal("Poof! Order  Approved successfully", {
