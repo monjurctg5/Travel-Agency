@@ -8,7 +8,11 @@ const Header = () => {
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
-          <Link className="navbar-brand" href="/">Travelo</Link>
+          <Link className="navbar-brand " href="/">
+            <span className="text-warning fs-1 fw-bold">T</span>
+            <span className="text-warning"><small>ra</small></span>
+            <span className="text-danger fs-1 fw-bold">V</span><span className="text-danger"><small>elo</small>
+              </span></Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>

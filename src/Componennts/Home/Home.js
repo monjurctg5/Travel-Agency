@@ -11,17 +11,17 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <div className="experience container">
-                <h1>Live unforgettable experiences</h1>
+                <h1>Some unforgettable experiences</h1>
                 <p className="w-75 mx-auto">h its unique cuisine, rich culture, some of the most beautiful beaches in the world, breathtaking waterfalls, and adventure for everyone’s liking, all you have to do is choose the perfect type of tourism for you and be amazed by the wonders of world</p>
             </div>
 
-           <div className="service mb-5 mt-5">
+           <div className="service mb-5 mt-5 container ">
            <Services />
            </div>
             {/* photo galary */}
 
 
-            <div className="mb-5 pb-5">
+            <div className="mb-5 pb-5 container">
                   
             <div className="experience container">
                 <h1>Some Of Natural Place</h1>

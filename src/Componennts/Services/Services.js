@@ -21,7 +21,8 @@ const Services = () => {
             <div className="top-destination" >
                 <h1>Top Destination</h1>
             </div>
-            <div className="row  row-cols-sm-1 justify-content-center align-items-center row-cols-md-3 row-cols-lg-4 g-4 ">
+            <div className="contaier">
+            <div className="row  row-cols-sm-1 justify-content-center align-items-center row-cols-md-2 row-cols-lg-3 g-4 ">
                 {
                     services.map(service => (
                         <div className="col">
@@ -39,6 +40,7 @@ const Services = () => {
                         </div>
                     ))
                 }
+            </div>
             </div>
 
 
