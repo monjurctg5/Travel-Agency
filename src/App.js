@@ -8,14 +8,14 @@ import {
 import AuthProvider from './context/AuthProvider';
 import Header from './Componennts/Header/Header';
 import Home from './Componennts/Home/Home';
-import About from './Componennts/About/About';
-import Contact from './Componennts/Contact/Contact';
 import Login from './Componennts/Login/Login';
 import Footer from './Componennts/Footer/Footer'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import DashBoard from './Componennts/DashBoard/DashBoard';
 import PrivateRoute from './Componennts/PrivateRoute/PrivateRoute';
 import PlaceORder from './Componennts/PlaceOrder/PlaceORder';
+import MyOrders from './Componennts/MyOrders/MyOrders';
+import NotWork from './Componennts/NotWork/NotWork';
 function App() {
   return (
     <div className="App">
@@ -29,12 +29,10 @@ function App() {
             <Route exact path="/home">
               <Home></Home>
             </Route>
-            <Route exact path="/about">
-              <About></About>
+            <Route exact path="/myOrders">
+              <MyOrders></MyOrders>
             </Route>
-            <Route path="/contact">
-              <Contact></Contact>
-            </Route>
+          
             <PrivateRoute path="/placeOrder/:id">
               <PlaceORder></PlaceORder>
             </PrivateRoute>
@@ -44,8 +42,9 @@ function App() {
             <Route exact path="/login">
               <Login></Login>
             </Route>
-      
-
+            <Route path ="*">
+              <NotWork></NotWork>
+            </Route>
           </Switch>
           <Footer/>
         </Router>

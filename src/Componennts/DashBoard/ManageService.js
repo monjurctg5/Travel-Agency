@@ -3,8 +3,9 @@ import { Spinner } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router';
 import useAuth from '../../hooks/useAuth';
-import AdService from '../AddService/AdService';
-import UpdateForm from '../updateForm/UpdateForm';
+import "../updateForm/update.css"
+// import AdService from '../AddService/AdService';
+// import UpdateForm from '../updateForm/UpdateForm';
 
 const ManageService = () => {
     const [services, setServices] = useState([])
@@ -14,21 +15,20 @@ const ManageService = () => {
     const { register, handleSubmit, reset } = useForm();
     const history = useHistory()
     useEffect(() => {
-        
-        fetch('http://localhost:5000/services')
+
+        fetch('https://shielded-badlands-01145.herokuapp.com/services')
             .then(res => res.json())
             .then(data => {
                 setServices(data)
             })
-    }, [])
+    }, [services])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/services/${updateId}`)
+        fetch(`https://shielded-badlands-01145.herokuapp.com/services/${updateId}`)
             .then(res => res.json())
             .then(data => {
                 setSingleService(data)
             })
-
     }, [updateId])
 
     if (isLoading) {
@@ -37,7 +37,7 @@ const ManageService = () => {
     const handleDelete = id => {
         const confirm = window.confirm("Are You  want to delete?")
         if (confirm) {
-            fetch(`http://localhost:5000/services/${id}`, { method: "delete" }).then(res => res.json())
+            fetch(`https://shielded-badlands-01145.herokuapp.com/services/${id}`, { method: "delete" }).then(res => res.json())
                 .then(data => {
                     if (data.deletedCount > 0) {
                         alert("delete successfully")
@@ -54,19 +54,19 @@ const ManageService = () => {
     const handleServiceName = e => {
         e.preventDefault()
         const ServiceName = e.target.value
-        const updateService = { ServiceName: ServiceName, sortTitle: singleService.sortTitle, description: singleService.description, img: singleService.img,cost:singleService.cost }
+        const updateService = { ServiceName: ServiceName, sortTitle: singleService.sortTitle, description: singleService.description, img: singleService.img, cost: singleService.cost }
         setSingleService(updateService)
     }
     const handleShorTitle = e => {
         e.preventDefault()
         const sortTitle = e.target.value
-        const updateService = { ServiceName: singleService.ServiceName, sortTitle: sortTitle, number: singleService.description, img: singleService.img,cost:singleService.cost  }
+        const updateService = { ServiceName: singleService.ServiceName, sortTitle: sortTitle, number: singleService.description, img: singleService.img, cost: singleService.cost }
         setSingleService(updateService)
     }
     const handleDescription = e => {
         e.preventDefault()
         const description = e.target.value
-        const updateService = { ServiceName: singleService.ServiceName, sortTitle: singleService.sortTitle, description: description, img: singleService.img,cost:singleService.cost  }
+        const updateService = { ServiceName: singleService.ServiceName, sortTitle: singleService.sortTitle, description: description, img: singleService.img, cost: singleService.cost }
         setSingleService(updateService)
     }
     const handleImg = e => {
@@ -75,14 +75,14 @@ const ManageService = () => {
         const updateService = { ServiceName: singleService.ServiceName, sortTitle: singleService.sortTitle, description: singleService.description, img: img }
         setSingleService(updateService)
     }
-    const handleCost = e =>{
+    const handleCost = e => {
         e.preventDefault()
         const cost = e.target.value
-        const updateService = { ServiceName: singleService.ServiceName, sortTitle: singleService.sortTitle, description: singleService.description, img: singleService.img ,cost:cost}
+        const updateService = { ServiceName: singleService.ServiceName, sortTitle: singleService.sortTitle, description: singleService.description, img: singleService.img, cost: cost }
         setSingleService(updateService)
     }
     const onSubmit = (e) => {
-        fetch(`http://localhost:5000/friends/${updateId}`, {
+        fetch(`https://shielded-badlands-01145.herokuapp.com/services/${updateId}`, {
             method: "PUT",
             headers: { 'content-type': 'application/json', },
             body: JSON.stringify(singleService)
@@ -93,6 +93,7 @@ const ManageService = () => {
                 if (data.modifiedCount > 0) {
                     alert("update successfully")
                     history.push("/dash")
+                    setSingleService({})
                 }
             })
         e.preventDefault()
@@ -149,7 +150,7 @@ const ManageService = () => {
                             </div>
                             <div className="modal-body">
 
-                                <div className="update-bg-image">
+                                <div className="">
                                     <div className="updateService-container">
                                         <h3 className="mt-5 fw-bold  text-success">Update  Service</h3>
                                         <div className="update-container">
@@ -163,7 +164,7 @@ const ManageService = () => {
                                                 <textarea value={singleService.description}
                                                     onChange={handleDescription}
                                                     placeholder="Description" />
-                                                     <input value={singleService.cost} onChange={handleCost} placeholder=" event image url" /> <br />
+                                                <input value={singleService.cost} onChange={handleCost} placeholder=" event image url" /> <br />
                                                 <input value={singleService.img} onChange={handleImg} placeholder=" event image url" /> <br />
                                                 <input type="submit" />
                                             </form>

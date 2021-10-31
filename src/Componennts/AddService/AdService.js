@@ -1,25 +1,30 @@
 
 import React, { useState } from 'react';
 // import useFirebase from '../../hooks/useFirebase';
+import swal from 'sweetalert';
 import './addService.css'
 import { useForm } from "react-hook-form";
 const AdService = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = (data) => {
-        fetch(`http://localhost:5000/services`, {
+        fetch(`https://shielded-badlands-01145.herokuapp.com/services`, {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
         }).then(res=>res.json())
         .then(data=>{
             if(data.acknowledged){
-                alert("service added successfully")
+                swal({
+                    title: "Good job!",
+                    text: "You clicked the button!",
+                    icon: "success",
+                  });
                 reset()
             }
         })
     }
     return (
-        <div className="addservice-container">
+        <div className="addservice-container bg-image">
             <h3 className="mt-5 fw-bold  text-success">Add  Services</h3>
             <div className="Event-container">
 

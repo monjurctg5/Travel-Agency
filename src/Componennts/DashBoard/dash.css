@@ -1,9 +1,24 @@
 
 
 .left-dash{
-    height: 700px;
+    height: 100%;
     background-color: rgb(44, 39, 56);
     color:white
+}
+.cursor-pointer{
+    cursor: pointer;
+
+}
+.cursor-pointer:hover{
+    color: blue;
+}
+.mangeData{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 40px;
+    
+    
 }
 
 @media(max-width:700px){

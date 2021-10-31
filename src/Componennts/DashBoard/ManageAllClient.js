@@ -1,23 +1,46 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Spinner } from 'react-bootstrap';
 
 const ManageAllClient = () => {
-    const [orders,setOrders] = useState([])
-    fetch('http://localhost:5000/orders')
-    .then(res=>res.json())
-    .then(data=>setOrders(data))
+    const [orders, setOrders] = useState([])
+    useEffect(() => {
+        fetch('https://shielded-badlands-01145.herokuapp.com/orders')
+            .then(res => res.json())
+            .then(data => setOrders(data))
 
-    const approvalId =id =>{
-        fetch(`http://localhost:5000/orders/${id}`,{method:"PUT"})
-        .then(res=>res.json())
-        .then(data=>{alert(data)
-            
-        })
+    }, [orders])
+    const approvalId = id => {
+        fetch(`https://shielded-badlands-01145.herokuapp.com/orders/${id}`, { method: "PUT" })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    alert("success fully  approoved")
+                }
+            })
+    }
+    const handleDelete = id => {
 
-        alert(id)
+        const permition = window.confirm("want to delete?")
+             if(permition){
+                fetch(`https://shielded-badlands-01145.herokuapp.com/orders/${id}`, { method: "delete" })
+                .then(res => res.json())
+                .then(data => {
+                    if(data.deletedCount){
+                        alert("delete Successfully")
+                        const remainning = orders.filter(order=>order._id!==id)
+                        setOrders(remainning)
+                        
+                    }
+                 
+                })
+             
+             }
+        
+
     }
     return (
         <div className="table-responsive-sm">
-                <table className="table table-sm table-striped table-bordered table-hover ">
+            <table className="table table-sm table-striped table-bordered table-hover ">
                 <thead>
                     <tr>
                         <th scope="col">SN</th>
@@ -28,7 +51,7 @@ const ManageAllClient = () => {
                         <th scope="col">Booking Place</th>
                         <th scope="col">Status</th>
                         <th scope="col">Actions</th>
-                        
+
                     </tr>
                 </thead>
                 <tbody>
@@ -36,18 +59,18 @@ const ManageAllClient = () => {
                         orders.map((order, index) => (
                             <tr>
                                 <th >{index + 1}</th>
-                               <td>{order.clientName}</td>
-                               <td>{order.email}</td>
-                               <td>{order.date}</td>
-                               <td>{order.adress}</td>
-                               <td>{order.ServiceName}</td>
-                               <td>{
-                                   order.approved==false?<span className="text-danger">pending...</span>:
-                                   <span className="text-success">Approved</span>
-                                   }</td>
+                                <td>{order.clientName}</td>
+                                <td>{order.email}</td>
+                                <td>{order.date}</td>
+                                <td>{order.adress}</td>
+                                <td>{order.ServiceName}</td>
+                                <td>{
+                                    order.approved == false ? <span className="text-danger "><Spinner animation="border" variant="danger" /></span> :
+                                        <span className="text-success"><i class="fas fa-check-circle"></i></span>
+                                }</td>
                                 <td >
-                                   <button onClick={()=>approvalId(order._id)}>Aproved</button>
-                                    {/* <button onClick={() => handleDelete(service._id)} className="btn btn-danger">delete</button> */}
+                                    <button onClick={() => approvalId(order._id)} className="btn btn-success " ><i class="fas fa-check-circle"></i></button> <br />
+                                    <button onClick={() => handleDelete(order._id)} className="btn btn-danger mt-1"><i class="fas fa-trash-alt"></i></button>
                                 </td>
                             </tr>
                         ))

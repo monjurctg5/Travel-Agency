@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useParams ,useHistory} from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
+import swal from 'sweetalert';
+
 import './plcaeOrder.css'
 const PlaceORder = () => {
-const history = useHistory()
+    const history = useHistory()
     var today = new Date();
 
     var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
     var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    var dateTime = date + ' ' + time;
+    var dateTime = date
     const { id } = useParams()
     const { user } = useAuth()
     const { register, handleSubmit, reset } = useForm();
     const [service, setSetvice] = useState({})
+
     useEffect(() => {
-        fetch(`http://localhost:5000/services/${id}`)
+        fetch(`https://shielded-badlands-01145.herokuapp.com/services/${id}`)
             .then(res => res.json())
             .then(data => {
                 setSetvice(data)
@@ -27,19 +30,20 @@ const history = useHistory()
             clientName: user.displayName,
             email: user.email,
             date: dateTime,
-            ServiceName:service.ServiceName,
+            ServiceName: service.ServiceName,
             cost: service.cost,
             adress: data.adress,
-            approved:false
+            approved: false
         }
-        fetch(`http://localhost:5000/orders`, {
+
+        fetch(`https://shielded-badlands-01145.herokuapp.com/orders`, {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newClientData)
         }).then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
-                    alert("  Thank you")
+                    swal("Thsnk You!", "You Booking  a Beautyfull Place!", "success");
                     history.push("/")
 
                     reset()
@@ -51,12 +55,12 @@ const history = useHistory()
             <div className="col">
                 <dib className="row  row-cols-sm-1 row-cols-md-2 justify-content-center align-items-center ">
                     <div className="col mt-5">
-                        <div class="card" style={{width:"30rem"}}>
-                            <img src={service.img} height="300px" class="card-img-top" alt="..."/>
-                            <div class ="card-body">
-                            <h5 class ="card-title">{service.ServiceName}</h5>
-                            <p class ="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <h5>{service.cost}$</h5>
+                        <div class="card" style={{ width: "30rem" }}>
+                            <img src={service.img} height="300px" class="card-img-top" alt="..." />
+                            <div class="card-body">
+                                <h5 class="card-title">{service.ServiceName}</h5>
+                                <p class="card-text">{service.description}</p>
+                                <h5>{service.cost}$</h5>
                             </div>
                         </div>
                     </div>
@@ -64,7 +68,7 @@ const history = useHistory()
             </div>
             <div className="col ">
                 <div className="Order-container">
-                    <h3 className="pt-5 fw-bold  text-success">Filup This Form</h3>
+                    <h3 className="pt-5 fw-bold  text-white">Filup This Form</h3>
                     <div className="Event-container">
                         <form onSubmit={handleSubmit(onSubmit)} className="mb-5">
                             <input required {...register("clientName")}
@@ -76,7 +80,7 @@ const history = useHistory()
                                 placeholder="sort title" />
                             <input  {...register("date")} disabled value={dateTime} /> <br />
                             <textarea className="text-dark" required {...register("adress")} placeholder="Adress" />
-                            <input value={service.cost} disabled  {...register("cost")} placeholder="  cost " /> <br />
+                            <input value={service.cost +"$"} disabled  {...register("cost")} placeholder="  cost " /> <br />
 
                             <input type="submit" className="text-dark" />
                         </form>

@@ -7,7 +7,7 @@ const Services = () => {
     const [services, setServices] = useState([])
     const { user, isLoading } = useAuth()
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('https://shielded-badlands-01145.herokuapp.com/services')
             .then(res => res.json())
             .then(data => {
                 setServices(data)
@@ -27,7 +27,9 @@ const Services = () => {
                                 <img src={service.img} class="card-img-top" alt="..." />
                                 <div class="card-body">
                                     <h5 class="card-title">{service.ServiceName}</h5>
-                                    <Link to={`/placeOrder/${service._id}`} class="btn btn-danger">Booking Now</Link>
+                                    <Link to={`/placeOrder/${service._id}`} class="btn btn-danger"
+                                    >Booking Now
+                                    </Link>
                                 </div>
                             </div>
                         </div>
