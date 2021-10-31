@@ -67,7 +67,7 @@ const MyOrders = () => {
                                 <th >{index + 1}</th>
                                 <td>{mmyOrder.ServiceName}</td>
                                 <td>{mmyOrder.date}</td>
-                                <td>{mmyOrder.cost}</td>
+                                <td>${mmyOrder.cost}</td>
 
                                 <td>{
                                     mmyOrder.approved == false ? <span className="text-danger "><Spinner animation="border" variant="danger" /></span> :
